@@ -5,5 +5,9 @@
 - mongo db
 
 ## Installation:
-```npm install
-sails lift```
+``` 
+npm install
+sails lift 
+```
+## Visit webpage:
+http://localhost:1337
