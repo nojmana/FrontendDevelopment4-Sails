@@ -6,7 +6,7 @@
  */
 
 module.exports = {
-  list:function(req, res) {
+  list: function(req, res) {
       Book.find({}).exec(function(err, books) {
           if (err) {
               res.send(500, {error: 'Database error'});
@@ -15,10 +15,10 @@ module.exports = {
       });
   },
 
-  add:function(req, res) {
+  add: function(req, res) {
       res.view('add');
   },
-  create:function(req, res) {
+  create: function(req, res) {
       var title = req.body.title;
       var author = req.body.author;
 
@@ -29,6 +29,17 @@ module.exports = {
 
         res.redirect('/book/list');
       });
+  },
+  delete: function(req, res) {
+      Book.destroy({id:req.params.id}).exec(function(err) {
+        if (err) {
+            res.send(500, {error: 'Database error'});
+        }
+
+        res.redirect('/book/list');
+      });
+      
+      return false
   }
 
 };
