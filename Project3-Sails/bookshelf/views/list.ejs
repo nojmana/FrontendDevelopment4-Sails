@@ -15,6 +15,7 @@
                 <td><%= book.title %> </td>
                 <td><%= book.author %></td>
                 <td>
+                    <a href="/book/edit/<%= book.id %>" class="btn btn-primary">Edit</a>
                     <form class="d-inline" action="/book/delete/<%= book.id %>" method="post">
                     <input type="submit" value="Delete" class="btn btn-danger">
                 </form>
